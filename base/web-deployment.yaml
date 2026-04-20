@@ -17,7 +17,7 @@ spec:
       containers:
         - name: web
           # FIXME:<your-org/repo:tag>
-          image: ghcr.io/mostlydevops/wordsmith-web:latest
+          image: ghcr.io/mostlydevops/wordsmith-web:stable-20241204-979f6f6@sha256:ceea9e94e10b2b1f27dd64182445e412f4cd697377ac367bd21370cc24ebbfb7
           imagePullPolicy: Always
           ports:
             - containerPort: 80
