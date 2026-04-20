@@ -20,6 +20,8 @@ spec:
           # FIXME:<your-org/repo:tag>
           image: ghcr.io/mostlydevops/wordsmith-api:latest
           imagePullPolicy: Always
+          securityContext:
+            allowPrivilegeEscalation: false
           ports:
             - containerPort: 8080
               name: api
