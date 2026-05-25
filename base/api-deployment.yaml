@@ -15,6 +15,17 @@ spec:
       labels:
         app: api
     spec:
+      # Security Fix: Pod Security Context Configuration
+      # Issue: Without explicit security context, containers may run as root user (UID 0),
+      # which poses a significant security risk. If a container is compromised, an attacker
+      # could gain root-level access to the host system, leading to privilege escalation.
+      # 
+      # Solution: Setting runAsNonRoot to true enforces that containers must run as a 
+      # non-root user. Kubernetes will verify the container image's USER directive and 
+      # reject the pod if it attempts to run as root (UID 0), preventing potential 
+      # privilege escalation attacks and limiting the blast radius of security breaches.
+      securityContext:
+        runAsNonRoot: true
       containers:
         - name: api
           # FIXME:<your-org/repo:tag>
